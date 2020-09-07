@@ -1,48 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Managers;
 using UnityEngine;
 
-public class PlayerMoving : MonoBehaviour, IMove
+namespace Assets.Scripts.Player
 {
-    public int Speed { get; set; }
-    public float XMin, XMax, ZMin, ZMax;
-    public float Tilt;
-
-    void Start()
+    public class PlayerMoving : MonoBehaviour
     {
-        Speed = 10;
-    }
+        private Rigidbody player;
+        private Vector3 startPosition;
+        private Quaternion startRotation;
 
-    private void FixedUpdate()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Rigidbody Player = GetComponent<Rigidbody>();
+        [Range(1, 10)] 
+        public int Speed = 8;
 
-        Player.velocity = new Vector3(horizontal, 0, vertical) * Speed;
+        public float XDifference = 515;
 
-        float newPosX = Mathf.Clamp(Player.position.x, XMin, XMax);
-        float newPosZ = Mathf.Clamp(Player.position.z, ZMin, ZMax);
-        float newPosY = Player.position.y;
+        private float tilt = 2f;
 
-        Player.position = new Vector3(newPosX, newPosY, newPosZ);
-
-        Player.rotation = Quaternion.Euler(Player.velocity.z * Tilt, 0, -Player.velocity.x * Tilt);
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        private void Start()
         {
-            Speed *= 2;
+            player = GetComponent<Rigidbody>();
+            startPosition = transform.position;
+            startRotation = transform.rotation;
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+
+        private void FixedUpdate()
         {
-            Speed /= 2;
+            if (GameManager.Instance.GameState != GameState.Play)
+            {
+                return;
+            }
+
+            var horizontal = Input.GetAxis("Horizontal");
+            var vertical = Input.GetAxis("Vertical");
+
+            player.velocity = new Vector3(horizontal, 0, vertical) * Speed;
+
+            var newPosX = Mathf.Clamp(player.position.x, startPosition.x - XDifference, startPosition.x + XDifference);
+            var newPosY = player.position.y;
+
+
+            player.position = new Vector3(newPosX, newPosY, startPosition.z);
+
+            var newAngle = Quaternion.Euler(player.velocity.z * tilt, 0, -player.velocity.x * tilt);
+            newAngle.x = startRotation.x;
+
+            transform.rotation = newAngle;
         }
-        
-
-    }
-
-    public void Move()
-    {
-        throw new System.NotImplementedException();
     }
 }
