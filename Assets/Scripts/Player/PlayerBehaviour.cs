@@ -7,6 +7,9 @@ namespace Assets.Scripts.Player
 {
     public class PlayerBehaviour : ResetableBehaviour
     {
+        [SerializeField] private SoundManager soundManager;
+        [SerializeField] private AudioClip collisionClip;
+        
         protected override void OnReset()
         {
             base.OnReset();
@@ -25,6 +28,7 @@ namespace Assets.Scripts.Player
         {
             if (collider.tag == "Asteroid")
             {
+                soundManager.CollisionAsteroid.PlayOneShot(collisionClip, 1);
                 GameManager.Instance.GameState = GameState.GameOver;
                 gameObject.SetActive(false);
             }
