@@ -26,9 +26,9 @@ namespace Assets.Scripts.Player
 
         private void OnTriggerEnter(Collider collider)
         {
-            if (collider.tag == "Asteroid")
+            if (collider.CompareTag("Asteroid"))
             {
-                soundManager.CollisionAsteroid.PlayOneShot(collisionClip, 1);
+                soundManager.CollisionAsteroid.PlayOneShot(collisionClip);
                 GameManager.Instance.GameState = GameState.GameOver;
                 gameObject.SetActive(false);
             }

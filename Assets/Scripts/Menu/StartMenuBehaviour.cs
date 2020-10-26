@@ -24,7 +24,7 @@ namespace Assets.Scripts.Menu
         {
             if (Input.GetKey(KeyCode.Return) && !restrictedKeys.Any(Input.GetKeyDown))
             {
-                soundManager.UiSource.PlayOneShot(audioClip, 1);
+                soundManager.UiSource.PlayOneShot(audioClip);
                 GameManager.Instance.GameState = GameState.Play;
             }
         }

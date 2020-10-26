@@ -30,4 +30,10 @@ public class SoundManager : MonoBehaviour
     {
         BackgrounSource.volume = sliderBack.value;
     }
+
+    private void OnDestroy()
+    {
+        sliderUI.onValueChanged.RemoveAllListeners();
+        sliderBack.onValueChanged.RemoveAllListeners();
+    }
 }
