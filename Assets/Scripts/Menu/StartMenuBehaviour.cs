@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Managers;
 using UnityEngine;
@@ -7,6 +8,11 @@ namespace Assets.Scripts.Menu
 {
     public class StartMenuBehaviour : MonoBehaviour
     {
+        [SerializeField] private SoundManager soundManager;
+        [SerializeField] private AudioClip audioClip;
+       
+        
+
         private static readonly HashSet<KeyCode> restrictedKeys = new HashSet<KeyCode>
         {
             KeyCode.Escape,
@@ -16,8 +22,9 @@ namespace Assets.Scripts.Menu
 
         void Update()
         {
-            if (Input.anyKeyDown && !restrictedKeys.Any(Input.GetKeyDown))
+            if (Input.GetKey(KeyCode.Return) && !restrictedKeys.Any(Input.GetKeyDown))
             {
+                soundManager.UiSource.PlayOneShot(audioClip);
                 GameManager.Instance.GameState = GameState.Play;
             }
         }
