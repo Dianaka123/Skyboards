@@ -676,6 +676,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 4319d9e04010d3e4e872da9c074a632f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 4319d9e04010d3e4e872da9c074a632f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -197
@@ -1469,7 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 1660884571}
-  audioClip: {fileID: 8300000, guid: 9ca5d73a285a1476188767b933493a86, type: 3}
+  audioClip: {fileID: 8300000, guid: c898cf15204ac491eaa0fea4036e4ff6, type: 3}
 --- !u!82 &1374865824
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1909,7 +1913,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9ca5d73a285a1476188767b933493a86, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c898cf15204ac491eaa0fea4036e4ff6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.423
   m_Pitch: 1
@@ -2007,8 +2011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a817316bf6d48cbaf9bbd1caa22e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgrounSource: {fileID: 1660884573}
-  CollisionAsteroid: {fileID: 1660884574}
+  BackgrounSource: {fileID: 1660884574}
+  CollisionAsteroid: {fileID: 1660884573}
   UiSource: {fileID: 1660884570}
   sliderUI: {fileID: 1336060868}
   sliderBack: {fileID: 1333534087}
@@ -2036,8 +2040,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0d911668719c241c2a3f943fdf4beed7, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: c9ef3b36d073d4bfeb36d734387a3c4c, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2132,8 +2136,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c9ef3b36d073d4bfeb36d734387a3c4c, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: f9a04561e98654f1e88f292edcb06425, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3020,6 +3024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330817020951222585, guid: 23a6022c7fabe1a44a2e768a13753d54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23a6022c7fabe1a44a2e768a13753d54, type: 3}
